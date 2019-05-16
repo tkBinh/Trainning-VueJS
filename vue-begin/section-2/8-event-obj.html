@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJS</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="../js/vue/vue.js"></script>
+</head>
+<body style="display: flex;justify-content: center; align-items: center; height: 500px">
+<div id="obj">
+	<div v-on:mousemove="targetMouse" style="background-color: grey; width: 1280px; height: 500px">
+		<h3 class="text-center" style="margin-top: 30px">Click to + value</h3>
+		<button v-on:click="valueIncrease" class="btn btn-danger btn-lg">+</button>
+		<!-- v-on: Lắng nghe sự kiện -->
+		<h3>Value: {{ value }}</h3>
+		<h4>Mouse target: {{ x }} / {{ y }}</h4>
+		<!-- Sự kiện di chuyển chuột -->
+	</div>
+</div>
+
+<script>
+    new Vue({
+        el: '#obj',
+        data: {
+            value: 0,
+            x: 0,
+            y: 0,
+        },
+        methods: {
+            valueIncrease: function () {
+                this.value++;
+            },
+            targetMouse: function (event) {
+                //x,y nằm trong data nên phải this
+                this.x = event.clientX;
+                this.y = event.clientY;
+            }
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS</title>
+    <script src="../js/vue/vue.js"></script>
+</head>
+<body>
+<div id="obj">
+    <!-- Event directive (sự kiện chỉ thị) -->
+    <!-- v-once: Giữ nguyên giá trị property trong data -->
+    <p v-once>{{ content }} - {{ showPost() }}</p>
+    <!-- Tất cả dữ liệu HTML đều là dữ liệu thô -->
+    <p v-html="testHTML"></p>
+    <a v-bind:href='link'>Laravel Project</a>
+    <!-- Binding data -->
+    <!-- Vue làm việc trực tiếp với HTML, nhưng -->
+    <!-- Muốn làm việc với att phải bind -->
+
+</div>
+
+<script>
+    new Vue({
+        el: '#obj',
+        data: {
+            content: 'This is a content !',
+            link: 'http://funny-laravel.local:6318/',
+            testHTML: '<a href="https...sdfsdfsdf">Get Password</a>',
+        },
+        methods: {
+            sayHello: function () {
+                document.write('Hello');
+            },
+            showPost: function () {
+                this.content = 'Content change with function !';
+                return this.content;
+            }
+        }
+    });
+</script>
+</body>
+</html>
