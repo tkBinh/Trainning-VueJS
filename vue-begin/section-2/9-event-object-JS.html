@@ -9,14 +9,13 @@
 </head>
 <body style="display: flex;justify-content: center; align-items: center; height: 500px">
 <div id="obj">
-	<div v-on:mousemove="targetMouse" style="background-color: grey; width: 1280px; height: 500px; display: flex; align-items: center; justify-content: center; flex-direction: column">
+	<div v-on:mousemove="targetMouse" style="background-color: grey; width: 1280px; height: 500px">
 		<h3 class="text-center" style="margin-top: 30px">Click to + value</h3>
 		<button v-on:click="valueIncrease" class="btn btn-danger btn-lg">+</button>
 		<!-- v-on: Lắng nghe sự kiện -->
 		<h3>Value: {{ value }}</h3>
 		<h4>Mouse target: {{ x }} / {{ y }}</h4>
 		<!-- Sự kiện di chuyển chuột -->
-		<span v-on:mousemove.stop="" style="background-color: beige; width: 1279px; height: 200px;">Stop Event</span>
 	</div>
 </div>
 
@@ -36,11 +35,7 @@
                 //x,y nằm trong data nên phải this
                 this.x = event.clientX;
                 this.y = event.clientY;
-            },
-			// mouseStop: function (event) {
-			// 	event.stopPropagation();
-			//	Dừng đo tọa độ chuột
-            // }
+            }
         }
     });
 </script>
