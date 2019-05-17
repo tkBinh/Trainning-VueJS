@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJS</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="../js/vue/vue.js"></script>
+</head>
+<body style="display: flex;justify-content: center; align-items: center; height: 500px">
+<div id="app">
+	<p>A value: {{ aaa }}</p>
+	<p>B value: {{ bbb }}</p>
+	<button class="btn btn-danger" v-on:click="a++">A++</button>
+	<button class="btn btn-danger" v-on:click="b++">B++</button>
+</div>
+
+<!-- Nếu cùng 1 đối tượng, Vue sẽ gọi tất cả các function cùng 1 lúc -> nhanh -->
+<!-- Vue là một đối tượng, thành phần bên trong là property, nhưng data lại là một đối tượng -->
+<!-- Computed là một property, bên trong có các function(), thực hiện như 1 function nhưng chúng không được coi là một function(),
+chỉ được coi là một thuộc tính -->
+<!-- Computed chạy trước method -->
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            a: 0,
+            b: 0,
+        },
+        computed: {
+            aaa: function () {
+                console.log('call A');
+                return this.a;
+            },
+            bbb: function () {
+                console.log('call B');
+                return this.b;
+            },
+        },
+        methods: {},
+    });
+</script>
+</body>
+</html>
