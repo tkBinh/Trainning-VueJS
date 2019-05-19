@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="../js/vue/vue.js"></script>
+
+</head>
+<body style="display: flex;justify-content: center; align-items: center; height: 500px">
+<div id="app">
+    <ul>
+        <li v-for="(menu, i) in menus">{{ menu }} - index {{ i }}</li>
+    </ul>
+<!--  Vue theo dõi hoạt động các phần tử  -->
+    <button @click="menus.push('test')">Add new item menu</button>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            menus: ['Home', 'About', 'Blog', 'Contact', 'FAQ']
+        },
+    })
+</script>
+</body>
+</html>

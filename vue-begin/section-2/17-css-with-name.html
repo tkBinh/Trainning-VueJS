@@ -6,26 +6,40 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="../js/vue/vue.js"></script>
+	<style>
+		.block {
+			width: 150px;
+			height: 150px;
+			background: #ccc;
+			margin: 20px;
+			display: inline-block;
+		}
+		.red {
+			background: darkred;
+		}
+		.blue {
+			background: darkblue;
+		}
+		.green {
+			background: darkgreen;
+		}
+	</style>
 </head>
 <body style="display: flex;justify-content: center; align-items: center; height: 500px">
 <div id="app">
-	<p>{{ point }}</p>
+	<div class="block" :class="color"></div>
+	<hr>
+	<input type="text" v-model="color">
 </div>
 
+<!-- Computed ghi đè methods, var -->
 <script>
-    var app = new Vue({
-        el: '#app',
-        data: {
-            point: 'A have 7'
-        },
-		watch: {
-        	// Theo dõi biến, khi biến thay đổi, watch hoạt động và thực hiện 1 công việc nào đó
-        	point: function (newValue) {
-				console.log("Diem da duoc nhap");
-			}
-		}
-    });
-    app.point = "Point = 8";
+   new Vue({
+	   el: '#app',
+	   data: {
+		   color: '',
+	   }
+   })
 </script>
 </body>
 </html>

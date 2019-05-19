@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="../js/vue/vue.js"></script>
+    <style>
+        .block {
+            width: 150px;
+            height: 150px;
+            background: #ccc;
+            margin: 20px;
+            display: inline-block;
+        }
+        .red {
+            background: darkred;
+        }
+        .blue {
+            background: darkblue;
+        }
+        .green {
+            background: darkgreen;
+        }
+    </style>
+</head>
+<body style="display: flex;justify-content: center; align-items: center; height: 500px">
+<div id="app">
+    <div class="block" :style="{backgroundColor: color}"></div>
+    <div class="block" :style="customStyles"></div>
+    <div class="block" :style="[customStyles, {height: width + 'px'}]"></div>
+    <hr>
+    <input type="text" v-model="color">
+    <input type="text" v-model="width">
+</div>
+
+<!-- Computed ghi đè methods, var -->
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            color: 'gray',
+            width: 150,
+        },
+        computed: {
+            customStyles: function () {
+                return {
+                    backgroundColor: this.color,
+                    width: this.width + 'px',
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

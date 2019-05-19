@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJS</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="../js/vue/vue.js"></script>
+	<style>
+		.block {
+			width: 50px;
+			height: 50px;
+			background: #ccc;
+			margin: 20px;
+			display: inline-block;
+		}
+		.red {
+			background: darkred;
+		}
+		.blue {
+			background: darkblue;
+		}
+		.green {
+			background: darkgreen;
+		}
+	</style>
+</head>
+<body style="display: flex;justify-content: center; align-items: center; height: 500px">
+<div id="app">
+	<div class="block" @click = "redChange = !redChange" :class="{red: redChange}"></div>
+	<div class="block" :class="{red: redChange}"></div>
+   <!-- Dùng chung biến sẽ cùng tác động, nếu set riêng ảnh hưởng phải dùng computed  -->
+	<div class="block"></div>
+	<div class="block"></div>
+</div>
+
+<script>
+   new Vue({
+	   el: '#app',
+	   data: {
+	   		redChange: false
+	   }
+   })
+</script>
+</body>
+</html>

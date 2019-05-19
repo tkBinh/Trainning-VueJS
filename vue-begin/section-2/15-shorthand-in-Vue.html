@@ -9,23 +9,23 @@
 </head>
 <body style="display: flex;justify-content: center; align-items: center; height: 500px">
 <div id="app">
-	<p>{{ point }}</p>
+	<button class="btn btn-primary" @click="changeLink">Click to change link</button>
+<!-- Shorthand @: hạn chế sử dụng -->
+	<a v-bind:href="linkVal">Link</a>
 </div>
 
 <script>
-    var app = new Vue({
-        el: '#app',
-        data: {
-            point: 'A have 7'
-        },
-		watch: {
-        	// Theo dõi biến, khi biến thay đổi, watch hoạt động và thực hiện 1 công việc nào đó
-        	point: function (newValue) {
-				console.log("Diem da duoc nhap");
+   new Vue({
+	   el: '#app',
+	   data: {
+	   	linkVal: 'https://www.google.com'
+	   },
+	   methods: {
+	   		changeLink: function () {
+				this.linkVal = 'https://www.facebook.com'
 			}
-		}
-    });
-    app.point = "Point = 8";
+	   }
+   })
 </script>
 </body>
 </html>

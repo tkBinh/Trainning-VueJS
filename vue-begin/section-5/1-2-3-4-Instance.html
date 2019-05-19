@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="../js/vue/vue.js"></script>
+
+</head>
+<body style="display: flex;justify-content: center; align-items: center; height: 500px; flex-direction: column">
+<div id="app">
+    <h1>{{ title }}</h1>
+</div>
+
+<div id="app2">
+    <h1>{{ title }}</h1>
+    <button class="btn btn-sucess" @click="onChangeTitle">Change instance 1st</button>
+</div>
+
+<script>
+    // Để quản lý một đối tượng DOM, ta dùng 1 instance, là một khởi tạo đối tượng Vue
+    // Có thể khởi tạo nhiều instance
+    var vn = new Vue({
+        el: '#app',
+        // data: khai báo các biến
+        // methods: khai báo các phương thức
+        // computed: hành động phức tạp hơn của biến, viết như một method nhưng dùng như 1 biến
+        // các instance có thể gọi tới nhau
+        // Vue quản lý các data, methods thông qua getter và setter, chị được theo dõi khi tạo bên trong Instance
+        data: {
+            title: '1st Instance',
+        },
+    });
+
+    var tl = new Vue({
+        el: '#app2',
+        data: {
+            title: '2nd Instance',
+        },
+        methods: {
+            onChangeTitle: function () {
+                vn.title = '1111111111111111'
+            }
+        }
+    })
+</script>
+</body>
+</html>
